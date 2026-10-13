@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: app/backend/Dockerfile
+    image: cardiosignal-backend
+    environment:
+      ALLOWED_ORIGINS: http://localhost:8080
+      LIVE_INGEST_TOKEN: ${LIVE_INGEST_TOKEN:?Set LIVE_INGEST_TOKEN in app/.env (copy .env.example)}
+      RATE_LIMIT_PER_MINUTE: "30"
+      TORCH_THREADS: "4"
+    expose:
+      - "8000"
+    restart: unless-stopped
+
+  # Simulated bedside devices: replays real recordings to the live monitor.
+  simulator:
+    image: cardiosignal-backend
+    command: ["python", "-m", "cardiosignal_api.live.simulator", "--patients", "${SIM_PATIENTS:-100}"]
+    environment:
+      LIVE_INGEST_TOKEN: ${LIVE_INGEST_TOKEN}
+      LIVE_URL: ws://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped

@@ -1,0 +1,9 @@
+# The backend image is built from the repository root; send only what it needs.
+*
+!training/pyproject.toml
+!training/cardiosignal
+!app/backend/requirements.txt
+!app/backend/cardiosignal_api
+!app/backend/models
+!app/backend/data
+**/__pycache__
