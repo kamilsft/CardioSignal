@@ -61,7 +61,7 @@ export function SignalChart({ series, sampleRate, beats = [], windowSeconds = 6,
 
     ctx.strokeStyle = resolveColor(canvas, "var(--grid)");
     ctx.fillStyle = resolveColor(canvas, "var(--text-muted)");
-    ctx.font = "11px system-ui, sans-serif";
+    ctx.font = `11px ${getComputedStyle(canvas).getPropertyValue("--font-sans").trim() || "sans-serif"}`;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(PADDING.left, y(0));
