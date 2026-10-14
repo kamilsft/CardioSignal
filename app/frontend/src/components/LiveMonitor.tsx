@@ -15,7 +15,7 @@ const CONNECTION_LABEL: Record<Connection, string> = {
 function SummaryStats({ summary }: { summary: LiveSummary }) {
   const items = [
     { label: "Patients", value: summary.patients.toLocaleString() },
-    { label: "Heart rate OK", value: summary.ok.toLocaleString(), tone: "stat-ok" },
+    { label: "Receiving signal", value: summary.ok.toLocaleString(), tone: "stat-ok" },
     { label: "Connecting", value: summary.warming_up.toLocaleString() },
     { label: "No signal", value: summary.no_signal.toLocaleString(), tone: summary.no_signal > 0 ? "stat-warn" : "" },
     { label: "Analysis time per tick", value: `${Math.round(summary.analysis_ms)} ms` },

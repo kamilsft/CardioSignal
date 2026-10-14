@@ -11,6 +11,27 @@ export const STATUS_LABEL: Record<PatientStatus, string> = {
   no_signal: "No signal",
 };
 
+export type Rhythm = "normal" | "slow" | "fast" | "critical";
+
+/** Adult resting ranges: below 60 is slow (bradycardia), above 100 fast (tachycardia). */
+export function classifyHeartRate(bpm: number): { rhythm: Rhythm; label: string } {
+  if (bpm < 40) return { rhythm: "critical", label: "Very slow" };
+  if (bpm > 150) return { rhythm: "critical", label: "Very fast" };
+  if (bpm < 60) return { rhythm: "slow", label: "Slow" };
+  if (bpm > 100) return { rhythm: "fast", label: "Fast" };
+  return { rhythm: "normal", label: "Normal" };
+}
+
+/** The tile badge: heart rhythm when there is a reading, otherwise the connection status. */
+export function badgeFor(patient: PatientVitals): { className: string; label: string } {
+  if (patient.status === "ok" && patient.heart_rate_bpm !== null) {
+    // Classify the number the tile displays, so "60 bpm" can never be labelled "Slow".
+    const { rhythm, label } = classifyHeartRate(Math.round(patient.heart_rate_bpm));
+    return { className: `rhythm-${rhythm}`, label };
+  }
+  return { className: `status-${patient.status}`, label: STATUS_LABEL[patient.status] };
+}
+
 interface Props {
   patient: PatientVitals;
   waveform?: Waveform;
@@ -54,12 +75,13 @@ export function PatientTile({ patient, waveform, windowSeconds }: Props) {
     }
   }, [waveform, windowSeconds]);
 
-  const label = hr !== null ? `${Math.round(hr)} bpm` : STATUS_LABEL[patient.status];
+  const badge = badgeFor(patient);
+  const label = hr !== null ? `${Math.round(hr)} bpm, ${badge.label.toLowerCase()}` : badge.label;
   return (
-    <article className={`patient-tile status-${patient.status}`} aria-label={`${patient.id}: ${label}`}>
+    <article className={`patient-tile status-${patient.status} ${badge.className}`} aria-label={`${patient.id}: ${label}`}>
       <header className="patient-head">
         <span className="patient-id">{patient.id}</span>
-        <span className={`status-badge status-${patient.status}`}>{STATUS_LABEL[patient.status]}</span>
+        <span className={`status-badge ${badge.className}`}>{badge.label}</span>
       </header>
       <canvas ref={canvasRef} className="patient-trace" style={{ height: HEIGHT }} aria-hidden="true" />
       <p className="patient-hr">

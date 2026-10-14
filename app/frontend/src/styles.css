@@ -169,7 +169,10 @@ button:disabled { cursor: not-allowed; opacity: .6; }
 .hr-value { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .hr-unit, .hr-missing { color: var(--text-muted); font-size: 13px; }
 .status-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
-.status-badge.status-ok { background: color-mix(in srgb, var(--beat) 15%, transparent); color: var(--ok-text); }
+.status-badge.status-ok, .status-badge.rhythm-normal { background: color-mix(in srgb, var(--beat) 15%, transparent); color: var(--ok-text); }
+.status-badge.rhythm-slow, .status-badge.rhythm-fast { background: var(--warn-bg); color: var(--warn-text); }
+.status-badge.rhythm-critical { background: var(--accent); color: #fff; }
+.patient-tile.rhythm-critical { border-color: var(--accent); }
 .status-badge.status-warming_up { background: var(--grid); color: var(--text-muted); }
 .status-badge.status-no_signal { background: var(--warn-bg); color: var(--warn-text); }
 
