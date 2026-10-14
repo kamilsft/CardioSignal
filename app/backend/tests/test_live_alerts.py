@@ -54,6 +54,10 @@ def run_from(engine, start, vitals_list):
 
 @pytest.mark.parametrize("vitals, kind", [
     (ok(bpm=33), "low_heart_rate"),
+    (ok(bpm=45), "slow_heart_rate"),
+    (ok(bpm=40), "slow_heart_rate"),        # boundary: 40 is a warning, below 40 is critical
+    (ok(bpm=130), "fast_heart_rate"),
+    (ok(bpm=150), "fast_heart_rate"),       # boundary: 150 is a warning, above 150 is critical
     (ok(irregularity=0.3), "irregular_rhythm"),
     (lost(), "signal_lost"),
 ])
@@ -61,6 +65,13 @@ def test_each_rule_fires(vitals, kind):
     engine = AlertEngine()
     run(engine, [vitals] * 20)
     assert [a.kind for a in engine.active()] == [kind]
+
+
+@pytest.mark.parametrize("bpm", [50, 75, 120])
+def test_normal_and_boundary_rates_raise_nothing(bpm):
+    engine = AlertEngine()
+    run(engine, [ok(bpm=bpm)] * 20)
+    assert engine.active() == []
 
 
 def test_patients_are_independent():

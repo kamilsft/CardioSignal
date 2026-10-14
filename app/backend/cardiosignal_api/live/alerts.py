@@ -10,8 +10,10 @@ from typing import Any, Callable, Iterable, Literal
 from .monitor import Vitals
 
 Severity = Literal["critical", "warning"]
-HIGH_HR_BPM = 150
-LOW_HR_BPM = 40
+HIGH_HR_BPM = 150          # critical
+LOW_HR_BPM = 40            # critical
+FAST_HR_BPM = 120          # warning, up to the critical limit
+SLOW_HR_BPM = 50           # warning, down to the critical limit
 IRREGULARITY_THRESHOLD = 0.15     # replayed sinus-rhythm recordings measure 0.01-0.06
 
 
@@ -33,9 +35,18 @@ def _hr_below(limit: float) -> Callable[[Vitals], bool]:
     return lambda v: v.heart_rate_bpm is not None and v.heart_rate_bpm < limit
 
 
+def _hr_between(low: float, high: float) -> Callable[[Vitals], bool]:
+    """low <= hr <= high, so a warning band never overlaps its critical rule."""
+    return lambda v: v.heart_rate_bpm is not None and low <= v.heart_rate_bpm <= high
+
+
 RULES: tuple[AlertRule, ...] = (
     AlertRule("high_heart_rate", "critical", f"Heart rate above {HIGH_HR_BPM} bpm", 10, 5, _hr_above(HIGH_HR_BPM)),
     AlertRule("low_heart_rate", "critical", f"Heart rate below {LOW_HR_BPM} bpm", 10, 5, _hr_below(LOW_HR_BPM)),
+    AlertRule("fast_heart_rate", "warning", f"Heart rate above {FAST_HR_BPM} bpm", 15, 10,
+              _hr_between(FAST_HR_BPM + 1e-9, HIGH_HR_BPM)),
+    AlertRule("slow_heart_rate", "warning", f"Heart rate below {SLOW_HR_BPM} bpm", 15, 10,
+              _hr_between(LOW_HR_BPM, SLOW_HR_BPM - 1e-9)),
     AlertRule("irregular_rhythm", "warning", "Irregular rhythm", 15, 10,
               lambda v: v.rr_irregularity is not None and v.rr_irregularity > IRREGULARITY_THRESHOLD),
     AlertRule("signal_lost", "warning", "No ECG signal", 5, 3, lambda v: v.status == "no_signal"),
