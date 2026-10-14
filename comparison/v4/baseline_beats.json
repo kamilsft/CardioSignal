@@ -1,0 +1,105 @@
+{
+  "settings": {
+    "smooth_ms": 80,
+    "min_gap_s": 0.4,
+    "height": 0.35,
+    "offset_ms": -30
+  },
+  "train_f1_pct": 69.9,
+  "test": {
+    "all": {
+      "segments": 4458,
+      "beats": {
+        "recall_pct": 69.4,
+        "precision_pct": 68.5,
+        "f1_pct": 68.9,
+        "real_beats": 42165
+      },
+      "per_person": {
+        "count": 10,
+        "median_f1_pct": 75.4,
+        "at_least_80_pct": 4,
+        "per_person_f1_pct": {
+          "cvd-C56": 28.6,
+          "cvd-C60": 90.2,
+          "ephnogram-S006": 84.1,
+          "ephnogram-S010": 76.6,
+          "ephnogram-S013": 74.3,
+          "ephnogram-S016": 52.4,
+          "ephnogram-S022": 18.9,
+          "measure-C41": 70.7,
+          "measure-C42": 88.2,
+          "measure-C44": 94.5
+        }
+      }
+    },
+    "good_quality": {
+      "segments": 3673,
+      "beats": {
+        "recall_pct": 76.1,
+        "precision_pct": 73.9,
+        "f1_pct": 74.9,
+        "real_beats": 35360
+      },
+      "per_person": {
+        "count": 10,
+        "median_f1_pct": 77.8,
+        "at_least_80_pct": 5,
+        "per_person_f1_pct": {
+          "cvd-C56": 24.2,
+          "cvd-C60": 91.8,
+          "ephnogram-S006": 87.2,
+          "ephnogram-S010": 81.0,
+          "ephnogram-S013": 74.7,
+          "ephnogram-S016": 62.4,
+          "ephnogram-S022": 18.1,
+          "measure-C41": 72.5,
+          "measure-C42": 88.8,
+          "measure-C44": 95.8
+        }
+      }
+    },
+    "healthy": {
+      "segments": 4422,
+      "beats": {
+        "recall_pct": 69.3,
+        "precision_pct": 68.6,
+        "f1_pct": 69.0,
+        "real_beats": 41932
+      },
+      "per_person": {
+        "count": 8,
+        "median_f1_pct": 75.4,
+        "at_least_80_pct": 3,
+        "per_person_f1_pct": {
+          "ephnogram-S006": 84.1,
+          "ephnogram-S010": 76.6,
+          "ephnogram-S013": 74.3,
+          "ephnogram-S016": 52.4,
+          "ephnogram-S022": 18.9,
+          "measure-C41": 70.7,
+          "measure-C42": 88.2,
+          "measure-C44": 94.5
+        }
+      }
+    },
+    "cvd": {
+      "segments": 36,
+      "beats": {
+        "recall_pct": 74.2,
+        "precision_pct": 51.3,
+        "f1_pct": 60.7,
+        "real_beats": 233
+      },
+      "per_person": {
+        "count": 2,
+        "median_f1_pct": 59.4,
+        "at_least_80_pct": 1,
+        "per_person_f1_pct": {
+          "cvd-C56": 28.6,
+          "cvd-C60": 90.2
+        }
+      }
+    }
+  }
+}

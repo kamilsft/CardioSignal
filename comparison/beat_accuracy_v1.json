@@ -1,0 +1,117 @@
+{
+  "tolerance_ms": 50,
+  "all": {
+    "pcg_to_ecg_beats": {
+      "recall_pct": 47.4,
+      "precision_pct": 54.5,
+      "f1_pct": 50.7,
+      "real_beats": 31147
+    },
+    "chance_beats": {
+      "recall_pct": 14.1,
+      "precision_pct": 16.2,
+      "f1_pct": 15.0,
+      "real_beats": 31147
+    },
+    "pcg_to_ecg_heart_rate": {
+      "median_abs_error_bpm": 3.9,
+      "within_5_bpm_pct": 52.8,
+      "within_10_bpm_pct": 56.6,
+      "segments": 3048
+    },
+    "ecg_to_pcg_heart_rate": {
+      "median_abs_error_bpm": 1.4,
+      "within_5_bpm_pct": 83.5,
+      "within_10_bpm_pct": 86.4,
+      "segments": 3113
+    },
+    "real_pcg_heart_rate_reference": {
+      "median_abs_error_bpm": 1.7,
+      "within_5_bpm_pct": 75.7,
+      "within_10_bpm_pct": 78.8,
+      "segments": 3113
+    },
+    "chance_heart_rate": {
+      "median_abs_error_bpm": 26.3,
+      "within_5_bpm_pct": 11.0,
+      "within_10_bpm_pct": 20.8,
+      "segments": 3065
+    }
+  },
+  "healthy": {
+    "pcg_to_ecg_beats": {
+      "recall_pct": 47.5,
+      "precision_pct": 55.0,
+      "f1_pct": 51.0,
+      "real_beats": 30746
+    },
+    "chance_beats": {
+      "recall_pct": 14.7,
+      "precision_pct": 17.0,
+      "f1_pct": 15.7,
+      "real_beats": 30746
+    },
+    "pcg_to_ecg_heart_rate": {
+      "median_abs_error_bpm": 3.8,
+      "within_5_bpm_pct": 53.0,
+      "within_10_bpm_pct": 56.8,
+      "segments": 2992
+    },
+    "ecg_to_pcg_heart_rate": {
+      "median_abs_error_bpm": 1.4,
+      "within_5_bpm_pct": 83.4,
+      "within_10_bpm_pct": 86.3,
+      "segments": 3055
+    },
+    "real_pcg_heart_rate_reference": {
+      "median_abs_error_bpm": 1.7,
+      "within_5_bpm_pct": 75.5,
+      "within_10_bpm_pct": 78.7,
+      "segments": 3055
+    },
+    "chance_heart_rate": {
+      "median_abs_error_bpm": 26.7,
+      "within_5_bpm_pct": 11.7,
+      "within_10_bpm_pct": 22.1,
+      "segments": 3019
+    }
+  },
+  "cvd": {
+    "pcg_to_ecg_beats": {
+      "recall_pct": 34.4,
+      "precision_pct": 28.8,
+      "f1_pct": 31.4,
+      "real_beats": 401
+    },
+    "chance_beats": {
+      "recall_pct": 14.2,
+      "precision_pct": 11.9,
+      "f1_pct": 13.0,
+      "real_beats": 401
+    },
+    "pcg_to_ecg_heart_rate": {
+      "median_abs_error_bpm": 14.7,
+      "within_5_bpm_pct": 44.6,
+      "within_10_bpm_pct": 46.4,
+      "segments": 56
+    },
+    "ecg_to_pcg_heart_rate": {
+      "median_abs_error_bpm": 0.6,
+      "within_5_bpm_pct": 86.2,
+      "within_10_bpm_pct": 93.1,
+      "segments": 58
+    },
+    "real_pcg_heart_rate_reference": {
+      "median_abs_error_bpm": 0.7,
+      "within_5_bpm_pct": 84.5,
+      "within_10_bpm_pct": 86.2,
+      "segments": 58
+    },
+    "chance_heart_rate": {
+      "median_abs_error_bpm": 3.1,
+      "within_5_bpm_pct": 72.3,
+      "within_10_bpm_pct": 87.2,
+      "segments": 47
+    }
+  }
+}

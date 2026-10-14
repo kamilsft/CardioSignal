@@ -1,0 +1,240 @@
+{
+  "checkpoint": "../kaggle_results_v4/run/final_ema.pt",
+  "tolerance_ms": 50,
+  "quality_threshold": 0.3,
+  "good_quality_share_pct": 82.4,
+  "all": {
+    "segments": 4458,
+    "pcg_to_ecg_beats": {
+      "recall_pct": 71.4,
+      "precision_pct": 75.7,
+      "f1_pct": 73.5,
+      "real_beats": 42165
+    },
+    "pcg_to_ecg_beats_per_recording": {
+      "count": 45,
+      "median_f1_pct": 95.6,
+      "at_least_80_pct": 31
+    },
+    "pcg_to_ecg_beats_per_person": {
+      "count": 10,
+      "median_f1_pct": 82.2,
+      "at_least_80_pct": 5,
+      "per_person_f1_pct": {
+        "cvd-C56": 44.9,
+        "cvd-C60": 98.1,
+        "ephnogram-S006": 84.6,
+        "ephnogram-S010": 79.8,
+        "ephnogram-S013": 73.1,
+        "ephnogram-S016": 61.4,
+        "ephnogram-S022": 17.5,
+        "measure-C41": 85.3,
+        "measure-C42": 99.5,
+        "measure-C44": 93.5
+      }
+    },
+    "chance_beats": {
+      "recall_pct": 14.9,
+      "precision_pct": 15.8,
+      "f1_pct": 15.3,
+      "real_beats": 42165
+    },
+    "pcg_to_ecg_heart_rate": {
+      "median_abs_error_bpm": 0.9,
+      "within_5_bpm_pct": 66.5,
+      "within_10_bpm_pct": 69.6,
+      "segments": 4179
+    },
+    "ecg_to_pcg_heart_rate": {
+      "median_abs_error_bpm": 1.3,
+      "within_5_bpm_pct": 87.7,
+      "within_10_bpm_pct": 90.1,
+      "segments": 4331
+    },
+    "real_pcg_heart_rate_reference": {
+      "median_abs_error_bpm": 2.0,
+      "within_5_bpm_pct": 68.3,
+      "within_10_bpm_pct": 71.4,
+      "segments": 4331
+    },
+    "chance_heart_rate": {
+      "median_abs_error_bpm": 27.2,
+      "within_5_bpm_pct": 11.8,
+      "within_10_bpm_pct": 22.3,
+      "segments": 4206
+    }
+  },
+  "good_quality": {
+    "segments": 3673,
+    "pcg_to_ecg_beats": {
+      "recall_pct": 77.9,
+      "precision_pct": 79.4,
+      "f1_pct": 78.6,
+      "real_beats": 35360
+    },
+    "pcg_to_ecg_beats_per_recording": {
+      "count": 44,
+      "median_f1_pct": 97.4,
+      "at_least_80_pct": 31
+    },
+    "pcg_to_ecg_beats_per_person": {
+      "count": 10,
+      "median_f1_pct": 84.0,
+      "at_least_80_pct": 6,
+      "per_person_f1_pct": {
+        "cvd-C56": 33.3,
+        "cvd-C60": 98.7,
+        "ephnogram-S006": 86.9,
+        "ephnogram-S010": 81.9,
+        "ephnogram-S013": 73.4,
+        "ephnogram-S016": 72.3,
+        "ephnogram-S022": 16.9,
+        "measure-C41": 86.0,
+        "measure-C42": 99.5,
+        "measure-C44": 94.9
+      }
+    },
+    "chance_beats": {
+      "recall_pct": 15.8,
+      "precision_pct": 16.1,
+      "f1_pct": 15.9,
+      "real_beats": 35360
+    },
+    "pcg_to_ecg_heart_rate": {
+      "median_abs_error_bpm": 0.6,
+      "within_5_bpm_pct": 70.9,
+      "within_10_bpm_pct": 73.3,
+      "segments": 3536
+    },
+    "ecg_to_pcg_heart_rate": {
+      "median_abs_error_bpm": 1.3,
+      "within_5_bpm_pct": 88.8,
+      "within_10_bpm_pct": 90.9,
+      "segments": 3604
+    },
+    "real_pcg_heart_rate_reference": {
+      "median_abs_error_bpm": 1.6,
+      "within_5_bpm_pct": 76.6,
+      "within_10_bpm_pct": 79.1,
+      "segments": 3604
+    },
+    "chance_heart_rate": {
+      "median_abs_error_bpm": 28.4,
+      "within_5_bpm_pct": 10.9,
+      "within_10_bpm_pct": 20.3,
+      "segments": 3537
+    }
+  },
+  "healthy": {
+    "segments": 4422,
+    "pcg_to_ecg_beats": {
+      "recall_pct": 71.4,
+      "precision_pct": 75.7,
+      "f1_pct": 73.5,
+      "real_beats": 41932
+    },
+    "pcg_to_ecg_beats_per_recording": {
+      "count": 39,
+      "median_f1_pct": 95.3,
+      "at_least_80_pct": 27
+    },
+    "pcg_to_ecg_beats_per_person": {
+      "count": 8,
+      "median_f1_pct": 82.2,
+      "at_least_80_pct": 4,
+      "per_person_f1_pct": {
+        "ephnogram-S006": 84.6,
+        "ephnogram-S010": 79.8,
+        "ephnogram-S013": 73.1,
+        "ephnogram-S016": 61.4,
+        "ephnogram-S022": 17.5,
+        "measure-C41": 85.3,
+        "measure-C42": 99.5,
+        "measure-C44": 93.5
+      }
+    },
+    "chance_beats": {
+      "recall_pct": 14.7,
+      "precision_pct": 15.6,
+      "f1_pct": 15.2,
+      "real_beats": 41932
+    },
+    "pcg_to_ecg_heart_rate": {
+      "median_abs_error_bpm": 0.9,
+      "within_5_bpm_pct": 66.5,
+      "within_10_bpm_pct": 69.6,
+      "segments": 4144
+    },
+    "ecg_to_pcg_heart_rate": {
+      "median_abs_error_bpm": 1.3,
+      "within_5_bpm_pct": 87.8,
+      "within_10_bpm_pct": 90.1,
+      "segments": 4295
+    },
+    "real_pcg_heart_rate_reference": {
+      "median_abs_error_bpm": 2.0,
+      "within_5_bpm_pct": 68.1,
+      "within_10_bpm_pct": 71.3,
+      "segments": 4295
+    },
+    "chance_heart_rate": {
+      "median_abs_error_bpm": 27.5,
+      "within_5_bpm_pct": 11.5,
+      "within_10_bpm_pct": 21.2,
+      "segments": 4174
+    }
+  },
+  "cvd": {
+    "segments": 36,
+    "pcg_to_ecg_beats": {
+      "recall_pct": 74.7,
+      "precision_pct": 78.0,
+      "f1_pct": 76.3,
+      "real_beats": 233
+    },
+    "pcg_to_ecg_beats_per_recording": {
+      "count": 6,
+      "median_f1_pct": 96.3,
+      "at_least_80_pct": 4
+    },
+    "pcg_to_ecg_beats_per_person": {
+      "count": 2,
+      "median_f1_pct": 71.5,
+      "at_least_80_pct": 1,
+      "per_person_f1_pct": {
+        "cvd-C56": 44.9,
+        "cvd-C60": 98.1
+      }
+    },
+    "chance_beats": {
+      "recall_pct": 12.0,
+      "precision_pct": 12.6,
+      "f1_pct": 12.3,
+      "real_beats": 233
+    },
+    "pcg_to_ecg_heart_rate": {
+      "median_abs_error_bpm": 0.7,
+      "within_5_bpm_pct": 60.0,
+      "within_10_bpm_pct": 71.4,
+      "segments": 35
+    },
+    "ecg_to_pcg_heart_rate": {
+      "median_abs_error_bpm": 1.5,
+      "within_5_bpm_pct": 80.6,
+      "within_10_bpm_pct": 83.3,
+      "segments": 36
+    },
+    "real_pcg_heart_rate_reference": {
+      "median_abs_error_bpm": 0.8,
+      "within_5_bpm_pct": 86.1,
+      "within_10_bpm_pct": 88.9,
+      "segments": 36
+    },
+    "chance_heart_rate": {
+      "median_abs_error_bpm": 13.6,
+      "within_5_bpm_pct": 19.4,
+      "within_10_bpm_pct": 41.7,
+      "segments": 36
+    }
+  }
+}

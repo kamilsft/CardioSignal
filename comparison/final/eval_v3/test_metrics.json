@@ -1,0 +1,75 @@
+{
+  "checkpoint": "../kaggle_results_v3/run/final_ema.pt",
+  "split": "test",
+  "counts": {
+    "all": 3162,
+    "healthy": 3092,
+    "cvd": 70
+  },
+  "all": {
+    "ecg_to_pcg": {
+      "pearson": 0.0281,
+      "envelope_pearson": 0.622,
+      "mae": 0.1063
+    },
+    "pcg_to_ecg": {
+      "pearson": 0.2637,
+      "envelope_pearson": 0.454,
+      "mae": 0.1792
+    },
+    "baseline_ecg_as_pcg": {
+      "pearson": 0.0007,
+      "envelope_pearson": 0.0975,
+      "mae": 0.2022
+    },
+    "baseline_pcg_as_ecg": {
+      "pearson": 0.0007,
+      "envelope_pearson": 0.0975,
+      "mae": 0.2022
+    }
+  },
+  "healthy": {
+    "ecg_to_pcg": {
+      "pearson": 0.0286,
+      "envelope_pearson": 0.6292,
+      "mae": 0.1052
+    },
+    "pcg_to_ecg": {
+      "pearson": 0.2648,
+      "envelope_pearson": 0.4579,
+      "mae": 0.1802
+    },
+    "baseline_ecg_as_pcg": {
+      "pearson": 0.0007,
+      "envelope_pearson": 0.0956,
+      "mae": 0.2027
+    },
+    "baseline_pcg_as_ecg": {
+      "pearson": 0.0007,
+      "envelope_pearson": 0.0956,
+      "mae": 0.2027
+    }
+  },
+  "cvd": {
+    "ecg_to_pcg": {
+      "pearson": 0.0056,
+      "envelope_pearson": 0.3008,
+      "mae": 0.1583
+    },
+    "pcg_to_ecg": {
+      "pearson": 0.2181,
+      "envelope_pearson": 0.2804,
+      "mae": 0.1356
+    },
+    "baseline_ecg_as_pcg": {
+      "pearson": -0.002,
+      "envelope_pearson": 0.185,
+      "mae": 0.18
+    },
+    "baseline_pcg_as_ecg": {
+      "pearson": -0.002,
+      "envelope_pearson": 0.185,
+      "mae": 0.18
+    }
+  }
+}
