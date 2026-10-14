@@ -32,3 +32,6 @@ Thumbs.db
 # Local secrets
 app/.env
 archive/
+
+# TypeScript build cache
+*.tsbuildinfo
